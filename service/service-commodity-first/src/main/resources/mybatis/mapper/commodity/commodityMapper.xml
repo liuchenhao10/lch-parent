@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lch.commodityfirst.dao.CommodityFirstMapper">
+    <cache/>
+<!--
+    // 商品主键
+    private Integer id;
+    // 商品类型
+    private String commodityType;
+    // 商品描述
+    private String commodityMessage;
+    // 商品销量
+    private Integer commoditySellNumber;
+    // 商品价格
+    private BigDecimal commodityMoney;
+    // 商品优惠
+    private BigDecimal commodityDiscount;
+    // 商品图片
+    private String commodityImg;
+    // 商品历史
+    private Date commodityHistory;
+    // 所属商家
+    private String commodityMaster;
+-->
+    <insert id="addOneCommodity" parameterType="Commodity">
+        insert into commodity(id,commodity_type,commodity_message,commodity_sell_number,commodity_money,commodity_discount,commodity_img,commodity_master,commodity_history)
+        values(#{id},#{commodityType},#{commodityMessage},#{commoditySellNumber},#{commodityMoney},#{commodityDiscount},#{commodityImg},#{commodityMaster},#{commodityHistory})
+    </insert>
+
+    <select id="getCommodityAll" resultType="Commodity">
+        select id,commodity_type,commodity_message,commodity_sell_number,commodity_money,commodity_discount,commodity_img,commodity_master,commodity_history from commodity
+    </select>
+</mapper>
